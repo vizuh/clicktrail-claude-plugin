@@ -44,8 +44,8 @@ Developer tools / observability / analytics.
 
 ## Invocation and mutation behavior
 
-`setup` and `instrument` set `disable-model-invocation: true`; users must invoke
-them explicitly. `audit` is read-only. `verify` uses the host project's local
+`setup`, `instrument`, and `verify` set `disable-model-invocation: true`;
+users must invoke them explicitly. `audit` is read-only. `verify` uses the host project's local
 commands and does not call live collectors without a separately explicit user
 authorization.
 

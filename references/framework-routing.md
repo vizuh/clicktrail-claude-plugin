@@ -1,6 +1,9 @@
 # Framework routing
 
-Choose a published package only after checking its current npm metadata.
+Choose a published package only after checking its current npm metadata. As of
+2026-08-26, the four routed first-wave packages are not all public, so marketplace
+submission and installer claims remain blocked. Setup must stop rather than
+install from a source directory or guess a package version.
 
 | Host | Preferred package | Notes |
 |---|---|---|
