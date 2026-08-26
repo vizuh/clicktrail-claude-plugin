@@ -1,0 +1,29 @@
+name: Validate Claude plugin
+
+"on":
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+        with:
+          node-version: 24
+      - name: Install pinned Claude Code validator
+        run: npm install --global @anthropic-ai/claude-code@2.1.241
+      - name: Run structural checks
+        run: python3 scripts/validate.py
+      - name: Validate plugin strictly
+        run: claude plugin validate . --strict

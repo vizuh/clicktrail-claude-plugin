@@ -1,0 +1,19 @@
+{
+  "name": "clicktrail",
+  "description": "Consent-safe ClickTrail setup, instrumentation, audit, and verification for web applications.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Vizuh OÜ",
+    "url": "https://vizuh.com"
+  },
+  "homepage": "https://github.com/vizuh/clicktrail-js",
+  "repository": "https://github.com/vizuh/clicktrail-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "analytics",
+    "attribution",
+    "consent",
+    "privacy",
+    "tracking"
+  ]
+}
