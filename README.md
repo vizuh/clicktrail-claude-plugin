@@ -4,8 +4,10 @@ A Claude Code plugin for installing, reviewing, and verifying consent-safe
 [ClickTrail](https://github.com/vizuh/clicktrail-js) integrations.
 
 The plugin does not collect analytics, contact a ClickTrail service, or mutate a
-project automatically. Setup and instrumentation skills require explicit user
-invocation. Audit is read-only. Verification uses the host project's own tools.
+project automatically. Setup, instrumentation, and verification require explicit
+user invocation. Audit is read-only. Verification inspects each host command
+before execution and stops before live, networked, or mutating checks unless the
+user approves them.
 
 ## Skills
 
@@ -32,13 +34,17 @@ Then try:
 /clicktrail:setup
 ```
 
-## Install from source
+## Load locally from source
 
-Until community-marketplace review is complete:
+Until community-marketplace review is complete, load the plugin for one Claude
+Code invocation:
 
 ```bash
 claude --plugin-dir /path/to/clicktrail-claude-plugin
 ```
+
+Persistent marketplace installation becomes available only after Anthropic
+accepts and publishes the plugin.
 
 ## Safety boundary
 

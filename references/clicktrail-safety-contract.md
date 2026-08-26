@@ -6,7 +6,9 @@ Apply these rules to every setup, audit, instrumentation, and verification task.
 
 - The host application owns the consent decision.
 - Do not start ClickTrail or persist attribution until consent is granted.
-- On withdrawal, clear ClickTrail-owned storage and buffered delivery before stop.
+- On withdrawal, atomically revoke consent and stop capture/delivery first.
+  Then erase ClickTrail-owned storage and queued/buffered events without flushing.
+  Verify that no later write or send can occur until a new grant.
 - Never weaken a host's existing consent management platform integration.
 
 ## Data minimization
@@ -32,10 +34,13 @@ configuration must win over caller-controlled fields.
 
 ## Destinations
 
-Server-side collectors must use public, credential-free HTTPS URLs. Reject
-loopback, private, link-local, metadata, local/internal, reserved, or embedded-
-credential destinations. Recommend a host-owned outbound allowlist where DNS
-rebinding is in scope.
+Server-side collectors must use public, credential-free HTTPS URLs. Require an
+exact host allowlist where possible. Resolve at connection time and reject every
+non-public address, mixed public/private answer, loopback, private, link-local,
+metadata, local/internal, reserved, or embedded-credential destination. Recheck
+redirect targets and pin the validated destination or connection when the host
+supports it. A hostname that passed a text check is not sufficient protection
+against DNS rebinding.
 
 ## Change discipline
 
