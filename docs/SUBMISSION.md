@@ -31,6 +31,10 @@ The official marketplace is curated separately and has no application process.
 6. Withdraw consent with a buffered destination. Verification must require
    storage and queue erasure evidence.
 
+## Submission copy
+
+Prepared form text is available in [`SUBMISSION-COPY.md`](SUBMISSION-COPY.md).
+
 ## Submit
 
 Individual authors can use:
