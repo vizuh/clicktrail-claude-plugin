@@ -1,7 +1,8 @@
 # ClickTrail for Claude Code
 
-A Claude Code plugin for installing, reviewing, and verifying consent-safe
-[ClickTrail](https://github.com/vizuh/clicktrail-js) integrations.
+A Claude Code plugin for planning, reviewing, instrumenting, and verifying
+[ClickTrail](https://github.com/vizuh/clicktrail-js) integrations without
+treating captured acquisition context as identity or authorization.
 
 The plugin does not collect analytics, contact a ClickTrail service, or mutate a
 project automatically. Setup, instrumentation, and verification require explicit
