@@ -13,7 +13,7 @@ assert manifest["license"] == "MIT"
 assert manifest["repository"] == "https://github.com/vizuh/clicktrail-claude-plugin"
 
 skill_root = ROOT / "skills"
-expected = {"setup", "audit", "instrument", "verify"}
+expected = {"setup", "audit", "instrument", "verify", "click-tracking-audit"}
 actual = {path.parent.name for path in skill_root.glob("*/SKILL.md")}
 assert actual == expected, (actual, expected)
 
@@ -36,6 +36,20 @@ for path in skill_root.glob("*/SKILL.md"):
 
 for explicit_only in {"setup", "instrument", "verify"}:
     assert frontmatter_by_skill[explicit_only].get("disable-model-invocation") == "true"
+
+problem_skill = (ROOT / "skills" / "click-tracking-audit" / "SKILL.md").read_text()
+assert "when-to-use:" in problem_skill
+for phrase in ("GCLID", "GBRAID", "WBRAID", "FBCLID", "UTM persistence", "offline conversion", "CRM"):
+    assert phrase in problem_skill
+
+grok_doc = (ROOT / "docs" / "GROK.md").read_text()
+for reference in (
+    "https://docs.x.ai/build/features/skills-plugins-marketplaces",
+    "https://docs.x.ai/build/features/mcp-servers",
+    "https://docs.x.ai/developers/tools/remote-mcp",
+):
+    assert reference in grok_doc
+assert "not currently" in grok_doc and "published on npm" in grok_doc
 
 agent = (ROOT / "agents" / "tracking-reviewer.md").read_text()
 agent_parts = agent.split("---\n", 2)

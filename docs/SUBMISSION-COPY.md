@@ -20,9 +20,9 @@ applications in Claude Code.
 
 ClickTrail helps developers add and review privacy-aware attribution in Astro,
 Nuxt, Vue, React, Next.js, and browser JavaScript projects. The plugin provides
-four skills: setup planning, read-only auditing, explicitly approved event
-instrumentation, and local verification. It also includes a read-only tracking
-reviewer agent.
+five skills: setup planning, read-only auditing, problem-oriented click-tracking
+diagnostics, explicitly approved event instrumentation, and local verification.
+It also includes a read-only tracking reviewer agent.
 
 The plugin enforces data minimization, host-owned consent, withdrawal erasure,
 public HTTPS destinations, and an explicit trust boundary: browser attribution
@@ -36,7 +36,7 @@ Developer tools / observability / analytics.
 
 ## Components
 
-- Skills: `setup`, `audit`, `instrument`, `verify`
+- Skills: `setup`, `audit`, `click-tracking-audit`, `instrument`, `verify`
 - Agent: `tracking-reviewer`
 - Hooks: none
 - MCP servers: none
@@ -45,7 +45,8 @@ Developer tools / observability / analytics.
 ## Invocation and mutation behavior
 
 `setup`, `instrument`, and `verify` set `disable-model-invocation: true`;
-users must invoke them explicitly. `audit` is read-only. `verify` uses the host project's local
+users must invoke them explicitly. `audit` and `click-tracking-audit` are read-only.
+`verify` uses the host project's local
 commands and does not call live collectors without a separately explicit user
 authorization.
 

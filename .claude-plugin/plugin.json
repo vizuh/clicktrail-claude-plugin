@@ -1,7 +1,7 @@
 {
   "name": "clicktrail",
-  "description": "Consent-safe ClickTrail setup, instrumentation, audit, and verification for web applications.",
-  "version": "0.1.0",
+  "description": "Consent-safe ClickTrail setup, instrumentation, audit, and verification for web applications, including lost GCLID/GBRAID/WBRAID/FBCLID, UTM persistence, CRM handoffs, offline conversions, and GA4 versus Google Ads discrepancies.",
+  "version": "0.2.0",
   "author": {
     "name": "Vizuh OÜ",
     "url": "https://vizuh.com"
@@ -14,6 +14,13 @@
     "attribution",
     "consent",
     "privacy",
-    "tracking"
+    "tracking",
+    "gclid",
+    "gbraid",
+    "wbraid",
+    "fbclid",
+    "utm-persistence",
+    "offline-conversions",
+    "crm-handoff"
   ]
 }
