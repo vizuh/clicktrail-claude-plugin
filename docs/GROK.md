@@ -41,7 +41,9 @@ grok inspect
 
 The command is intentionally manual. `@vizuh/clicktrail-mcp@0.2.0` is not currently
 published on npm (the registry returned 404 during the compatibility check), so
-this plugin does not ship a `.mcp.json` that would fail at startup.
+this plugin does not ship a `.mcp.json` that would fail at startup. The
+validation environment did not include the `grok` executable, so connection and
+`grok mcp doctor` runtime behavior remain unverified.
 The MCP server is local-first, reads only caller-supplied snapshots, and has no
 provider or CRM side effects.
 
