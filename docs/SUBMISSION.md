@@ -12,9 +12,9 @@ The official marketplace is curated separately and has no application process.
 ## Pre-submission checklist
 
 - [ ] `claude plugin validate . --strict` passes.
-- [ ] All four skills and the reviewer agent load under the `clicktrail` namespace.
+- [ ] All five skills and the reviewer agent load under the `clicktrail` namespace.
 - [ ] Setup, instrument, and verify require explicit invocation.
-- [ ] Audit remains read-only.
+- [ ] Audit and automatic click-tracking diagnostics remain read-only.
 - [ ] Verification does not call a live collector by default.
 - [ ] Instructions contain no credentials, private URLs, customer data, or PII.
 - [ ] Repository, homepage, license, author, and version metadata are correct.
